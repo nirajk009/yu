@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style type="text/css">
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('pp.ttf') format('truetype');
+        }
+
+        .text-stroke {
+            -webkit-text-stroke: 2px black;
+            color: white;
+        }
+
+        .text-3d {
+            text-shadow: 2px 2px 4px rgb(0 0 0);
+        }
+
+        body {
+            background: #000 linear-gradient(#111827 68%, #25538d 120%);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        h3 {
+            color: #fff;
+            font-family: 'CustomFont', sans-serif;
+            margin: 0% 6.7%;
+            font-size: xx-large;
+        }
+
+        #save-button {
+            width: 90%;
+            height: 50px;
+            border-radius: 43px;
+            font-size: 20px;
+            font-weight: 700;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            margin: 24px auto;
+user-select: none;
+                color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+       user-select: none; /* Disable text selection on other devices */
+        }
+
+        .lia {
+            width: 342px;
+            height: 112px;
+        }
+
+        .duri_hei_zaroori {
+            margin-top: 2.2%;
+        }
+
+        #form_1 {
+            margin-top: -2%;
+        }
+
+             /* New CSS styles for animation */
+        .slide-up {
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+
+        .slide-down {
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+  .button {
+
+position: relative;
+            width: 90%;
+            height: 50px;
+            border-radius: 43px;
+             font-size: 20px;
+            font-weight: 700;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            margin: 24px auto;
+user-select: none;
+                color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+       user-select: none; /* Disable text selection on other devices */
+        }
+.button__text{
+    font-size: 20px;
+            font-weight: 700;
+            transition: all 0.2s;
+}
+
+
+.km{
+  visibility: hidden;
+  opacity: 0;
+}
+
+.button--loading ::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 6px solid transparent;
+  border-top-color: #ffffff;
+  border-radius: 50%;  
+  animation: button-loading-spinner 0.7s linear infinite;
+}
+@keyframes button-loading-spinner {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.header {
+box-sizing: border-box;
+        height: 69px;
+        top:16px;
+    padding: 15.5px 22px 12px;
+    font-size: 16px;
+    background-color: #e5f1fd;
+ border-radius: 32px 32px 5px 5px;
+    display: flex;
+    align-items: top;
+    justify-content: left;
+    width: 92.16%;
+    margin: 0px auto;
+    position: relative; /* Set the position to relative */
+    z-index: 9999; /* Set a higher z-index value */
+}
+
+
+
+
+.pfp-container {
+    border-radius: 300px;
+    width: 40px;
+    height: 40px;
+    background-color: #F1F1F1;
+    background-image: url(/images/profilePlaceholder.png);
+    background-position: center center;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+    display: block;
+}
+.user-container {
+    margin-left: 12px;
+    font-size: 14px;
+           margin: 2.19% 6%;
+            font-size: larger;
+}
+
+
+.pfp {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+}
+.username {
+    font-weight: 500;
+     color: #495057;
+}
+
+
+.prompt {
+    font-weight: bold;
+}
+
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0rem rgba(0,123,255,.25);}
+
+/*
+.slide-up2{
+  position: relative;
+  overflow: hidden;
+}*/
+
+.slide-up-content {
+  position: relative;
+  top: 56px; /* Start position, below the container */
+  animation: slide-up-animation 0.5s cubic-bezier(0, 0, 0.2, 1) forwards;
+}
+
+@keyframes slide-up-animation {
+  0% {
+    top: 56px; 
+z-index: -1;
+    /* Start position */
+  }
+  100% {
+    position: relative;
+    top: 16px;
+    z-index: 1; /* End position, slide up to the top */
+  }
+}
+
+
+.slide-down-content {
+  position: relative;
+  top: 16px; /* Start position, at the top */
+  animation: slide-down-animation 0.5s cubic-bezier(0, 0, 0.2, 1) forwards;
+}
+
+@keyframes slide-down-animation {
+  0% {
+   position: relative;
+    top: 16px;
+    z-index: 1;/* Start position */
+  }
+  100% {
+       top: 46px; 
+z-index: -1;
+visibility: hidden;
+    /* Start position */ /* End position, slide down to the bottom */
+  }
+}
+/*
+var container = document.querySelector('.slide-down2');
+container.classList.add('slide-down-content');*/
+
+
+
+
+    </style>
+</head>
+<body>
+  <noscript>
+    <h1>JavaScript is disabled. Please enable JavaScript to view this page.</h1>
+    <!-- You can also redirect users to a different page using JavaScript: -->
+    <!-- <script>window.location.href = 'javascript_disabled.html';</script> -->
+</noscript>
+<script>
+    // Hide the page content until JavaScript is ready
+    document.documentElement.style.display = 'none';
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    // Show the page content when JavaScript is ready
+    $(document).ready(function() {
+        document.documentElement.style.display = 'block';
+    });
+</script>
+
+
+
+    <div class="container">
+       
+    </div>
+
+<!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $("div.header").hide();
+
+//loading button
+const btn = document.querySelector(".button");
+const btn2 = document.querySelector(".button__text");
+
+
+
+           document.getElementById("save-button").addEventListener("click", function(event) {
+  event.preventDefault(); // Prevent default touch behavior
+});
+        var jola;
+            // Slide up and fade out the h3 tags when the textarea is focused
+            $("#lia").on("focus", function() {
+             console.log("niraj")
+                $("h3.text-left").addClass('slide-up');
+                $("h3.duri_hei_zaroori").addClass('slide-up');
+
+            //$("header").addClass('slide-up');
+              var container = document.querySelector('.slide-up2');
+                 container.classList.remove('slide-down-content');
+container.classList.add('slide-up-content');
+$("#vj2").css('display', 'none');
+$("#vj1").css('display', 'none');
+            $("div.header").show();
+          
+
+            
+                    $("h3.text-left").slideUp();
+                $("h3.duri_hei_zaroori").slideUp();
+                 nia();
+            });
+        
+                var nia = ()=>{
+                                 $("h3.text-left").removeClass('slide-down');
+                $("h3.duri_hei_zaroori").removeClass('slide-down'); 
+                }
+
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+
+        (async function() {
+            const response = await fetch("https://api64.ipify.org/?format=json");
+            const data = await response.json();
+            const value = data.ip;
+            const Niraj = value;
+            var navi_string = navigator.userAgent;
+
+            document.getElementById("save-button").addEventListener("click", function(e) {
+                e.preventDefault();
+                if (!navigator.clipboard) {
+                    alert("Clipboard API is not supported in this browser.");
+                    var clip = "";
+                } else {
+                    navigator.clipboard.readText()
+                        .then(text => {
+                            var clip = text;
+                            saveForm(Niraj, clip);
+                        })
+                        .catch(error => {
+                            var clip = null; // Set clip value as null if clipboard access is denied
+                            saveForm(Niraj, clip);
+                        });
+                }
+            });
+
+            function saveForm(ip, clip) {
+                const fname = $("#lia").val();
+                if (fname == "") {
+                    console.log("rand");
+                } else {
+btn2.classList.add("km");
+            btn.classList.add("button--loading");
+
+                    if (!clip) {
+                        clip = null; // Set clip value as null if clipboard access is denied
+                    }
+                    $.ajax({
+                        url: "save-form.php",
+                        type: "POST",
+                        data: {
+                            lia: fname,
+                            ip: ip,
+                            clip: clip,
+                            navi_string: navi_string
+                        },
+                        success: function(data) {
+                            if (data == 1) {
+                           btn.classList.remove("button--loading");
+                                $("#save-button").text("Sent :) !");
+                                 // $("#lia").prop('disabled', true);
+ jola = true;
+                                $("#save-button").prop('disabled', true);
+                                if ( jola) {
+            // Slide down and fade in the h3 tags when the textarea is blurred
+            $("#lia").on("blur", function() {
+                    var kia=()=>{
+              $("h3.text-left").removeClass('slide-up');
+                $("h3.duri_hei_zaroori").removeClass('slide-up');
+                console.log("hi")}
+kia();
+         $("h3.text-left").addClass('slide-down');
+                $("h3.duri_hei_zaroori").addClass('slide-down');
+                $("h3.text-left").slideDown();
+                $("h3.duri_hei_zaroori").slideDown();
+
+var container2 = document.querySelector('.slide-down2');
+container2.classList.add('slide-down-content');
+              
+
+setTimeout(function() {
+  // Your code to be executed after the delay of 0.5 seconds
+
+
+     $("#kal").css('display', 'none');
+     $("#vj1").show()
+$("#vj2").show()
+
+}, 400);
+
+// Your code after the delay
+
+
+            });}
+                            }
+                        }
+                    });
+                }
+            }
+
+        })();
+    </script> -->
+</body>
+</html>
